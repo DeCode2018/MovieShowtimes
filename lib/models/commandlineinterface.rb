@@ -9,7 +9,10 @@ class CommandLineInterface
     puts "******************************"
     puts "Enter the menu # to select"
     puts "1. Create Theater"
-    puts "2. List available movies"
+    puts "2. Create Movie Entry"
+    puts "3. Create Showtime Entry"
+
+    puts " . List available movies"
     puts "3. List available theaters"
     puts "4. List available showtimes"
     puts "5. Update theater info"
@@ -50,6 +53,7 @@ class CommandLineInterface
   end
 
   def menu_1
+    #create theater
     puts "What is the new theater's name?"
     new_theater_name = gets.chomp
     puts "What is the address for #{new_theater_name}?"
@@ -67,10 +71,26 @@ class CommandLineInterface
   end
 
   def menu_2
+    #create Movie Entry
+    puts "What is the new movie's name?"
+    new_movie_name = gets.chomp
+    puts "What is the genre of #{new_movie_name}?"
+    new_movie_genre = gets.chomp
+    puts "What is the trailer link for #{new_movie_name}"
+    new_movie_link_to_trailer = gets.chomp
 
+    Movie.create(film_name: new_movie_name, film_genre: new_movie_genre, trailer: new_movie_link_to_trailer)
+    puts "**********************"
+    puts "This is your new movie entry:"
+    puts "#{new_movie_name}"
+    puts "#{new_movie_genre}"
+    puts "#{new_movie_link_to_trailer}"
+    puts "**********************"
   end
 
   def menu_3
+    #create Showtime entry
+    available_theaters = []
     puts "What theater are you entering showtime for?"
     theater_name = gets.chomp
     puts "What movie are you entering a showtime for?"
