@@ -127,7 +127,14 @@ class CommandLineInterface
   end
 
   def menu_6
-
+    #list available showtimes
+    all_showtimes = Showtime.all
+    all_showtimes.each do |showtime|
+      puts "
+      Theater Name: #{showtime.theater_name}\n
+      Film Name: #{showtime.film_name}\n
+      Showtime: #{showtime.time}\n"
+    end
   end
 
   def menu_7
