@@ -111,7 +111,11 @@ class CommandLineInterface
   end
 
   def menu_4
-
+    #list available movies
+    all_movies = Movie.all
+    all_movies.each do |movie|
+      puts movie.film_name
+    end
   end
 
   def menu_5
