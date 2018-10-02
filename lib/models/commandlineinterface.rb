@@ -138,19 +138,26 @@ class CommandLineInterface
   end
 
   def menu_7
-
+    #Update theater info
+    puts "Which theater would you like to delete?"
+    theater_delete = gets.chomp
+    theater = Theater.find_by(theater_name: theater_delete)
+    theater.destroy
   end
 
   def menu_8
+    #Delete Showtime
+    
 
   end
 
   def menu_9
+    #Delete Movie
 
   end
 
   def menu_10
-
+    #Delete Theater
   end
 
 
