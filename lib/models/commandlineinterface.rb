@@ -26,7 +26,7 @@ class CommandLineInterface
 
     case input
       when "1"
-      menu_one
+      menu_1
 
       when "2"
       menu_two
@@ -54,7 +54,55 @@ class CommandLineInterface
 
       when "10"
       menu_ten
-
     end
   end
+
+  def menu_1
+    puts "What theater are you entering showtime for?"
+    theater_name = gets.chomp
+    puts "What movie are you entering a showtime for?"
+    movie_name = gets.chomp
+    puts "Enter showtime in format [hh:mm am/pm]"
+    showtime = gets.chomp
+
+    puts "theater name = #{theater_name}, movie name = #{movie_name}, showtime = #{showtime}"
+  end
+
+  def menu_2
+
+  end
+
+  def menu_3
+
+  end
+
+  def menu_4
+
+  end
+
+  def menu_5
+
+  end
+
+  def menu_6
+
+  end
+
+  def menu_7
+
+  end
+
+  def menu_8
+
+  end
+
+  def menu_9
+
+  end
+
+  def menu_10
+
+  end
+
+
 end

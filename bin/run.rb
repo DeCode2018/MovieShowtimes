@@ -1,5 +1,9 @@
 require_relative '../config/environment'
 
 system "clear"
-puts  "Welcome to MovieShowtime!!!"
-puts "HELLO WORLD"
+cli = CommandLineInterface.new
+
+cli.greet
+cli.menu
+cli.get_user_input
+puts "BYE CRUEL WORLD"
