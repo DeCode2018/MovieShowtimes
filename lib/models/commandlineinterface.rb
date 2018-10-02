@@ -9,15 +9,13 @@ class CommandLineInterface
     puts "******************************"
     puts "Enter the menu # to select"
     puts "1. Create Showtime"
-    puts "2. Add Movie"
-    puts "3. Add Theater"
-    puts "4. List available movies"
-    puts "5. List available theaters"
-    puts "6. List available showtimes"
-    puts "7. Update theater info"
-    puts "8. Delete Showtime"
-    puts "9. Delete Movie"
-    puts "10. Delete Theater"
+    puts "2. List available movies"
+    puts "3. List available theaters"
+    puts "4. List available showtimes"
+    puts "5. Update theater info"
+    puts "6. Delete Showtime"
+    puts "7. Delete Movie"
+    puts "8. Delete Theater"
     puts "******************************"
   end
 
@@ -48,12 +46,6 @@ class CommandLineInterface
 
       when "8"
       menu_eight
-
-      when "9"
-      menu_nine
-
-      when "10"
-      menu_ten
     end
   end
 

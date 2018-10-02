@@ -15,7 +15,7 @@ Movie.create("Black Panther","Action","Chadwick Boseman","www.blackpanther.com")
 
 
 #Showtime
-Showtime.create(1,1, "Monday", "12:00pm")
-Showtime.create(2,4, "Wednesday", "12:00pm")
-Showtime.create(3,3, "Friday", "12:00pm")
-Showtime.create(4,2, "Saturday", "12:00pm")
+Showtime.create("Regal DC" "Bourne Identity", "5:00pm")
+Showtime.create("AMC DC" "Mission Impossible", "7:00pm")
+Showtime.create("CINEMARK DC" "Avengers: Infinity Wars", "8:00pm")
+Showtime.create("MUVICO DC" "The Dreamers", "6:00pm")
