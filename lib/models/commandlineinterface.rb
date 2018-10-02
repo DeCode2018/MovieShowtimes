@@ -11,14 +11,13 @@ class CommandLineInterface
     puts "1. Create Theater"
     puts "2. Create Movie Entry"
     puts "3. Create Showtime Entry"
-
-    puts " . List available movies"
-    puts "3. List available theaters"
-    puts "4. List available showtimes"
-    puts "5. Update theater info"
-    puts "6. Delete Showtime"
-    puts "7. Delete Movie"
-    puts "8. Delete Theater"
+    puts "4. List available movies"
+    puts "5. List available theaters"
+    puts "6. List available showtimes"
+    puts "7. Update theater info"
+    puts "8. Delete Showtime"
+    puts "9. Delete Movie"
+    puts "10. Delete Theater"
     puts "******************************"
   end
 
@@ -90,15 +89,25 @@ class CommandLineInterface
 
   def menu_3
     #create Showtime entry
-    available_theaters = []
-    puts "What theater are you entering showtime for?"
-    theater_name = gets.chomp
+
+    #get inputs from user
+    puts "What theater are you entering a showtime for?"
+    theater_name_showtime = gets.chomp
     puts "What movie are you entering a showtime for?"
-    movie_name = gets.chomp
+    movie_name_showtime = gets.chomp
     puts "Enter showtime in format [hh:mm am/pm]"
     showtime = gets.chomp
 
-    puts "theater name = #{theater_name}, movie name = #{movie_name}, showtime = #{showtime}"
+    #creates new Showtime based on user inputs
+    Showtime.create(film_name: movie_name_showtime, theater_name: theater_name_showtime, time: showtime)
+
+    #displays to user the information they entered for "Showtime"
+    puts "**********************"
+    puts "This is your showtime entry:"
+    puts "#{theater_name_showtime}"
+    puts "#{movie_name_showtime}"
+    puts "#{showtime}"
+    puts "**********************"
   end
 
   def menu_4
