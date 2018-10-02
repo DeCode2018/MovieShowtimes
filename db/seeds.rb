@@ -7,11 +7,7 @@ Theater.create("REGAL","123 REGAL WAY","www.regal.com")
 Theater.create("MUVICO","123 MUVICO WAY","www.muvico.com")
 Theater.create("CINEMARK","123 CINEMARK WAY","www.cinemark.com")
 
-#Movies
-Movie.create("Star Wars","Sci-Fi","Mark Hamilton","www.starwars.com")
-Movie.create("GET OUT","horror","Daniel Kaluuya","www.getout.com")
-Movie.create("Avengers","Action","Robert Downey Jr.","www.avengers.com")
-Movie.create("Black Panther","Action","Chadwick Boseman","www.blackpanther.com")
+
 
 
 #Showtime
