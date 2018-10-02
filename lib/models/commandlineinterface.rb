@@ -119,7 +119,11 @@ class CommandLineInterface
   end
 
   def menu_5
-
+    #list available theaters
+    all_theaters = Theater.all
+    all_theaters.each do |theater|
+      puts theater.theater_name
+    end
   end
 
   def menu_6
