@@ -1,4 +1,5 @@
 require 'pry'
+require 'launchy'
 class CommandLineInterface
 
 
@@ -126,7 +127,21 @@ class CommandLineInterface
     all_movies.each do |movie|
       puts movie.film_name
     end
-    return_menu?
+    puts "Would you like to play a movie trailer?(Y/N)"
+    play_trailer_choice = gets.chomp.upcase
+
+    case play_trailer_choice
+    when "Y"
+      puts "Type the name of the movie whose trailer you want to play"
+      movie_trailer_choice = gets.chomp
+
+      play_trailer = Movie.find_by(film_name: movie_trailer_choice)
+      Launchy.open(play_trailer.trailer)
+      return_menu?
+    when "N"
+      return_menu?
+    end
+
   end
 
   def menu_5
@@ -195,7 +210,6 @@ class CommandLineInterface
     puts "Which showtime would you like to delete?"
     showtime_delete = gets.chomp
     showtime = Showtime.where(theater_name: showtime_theater_name_delete, film_name: showtime_movie_name_delete, time: showtime_delete)
-    binding.pry
     showtime.destroy_all
     return_menu?
 
