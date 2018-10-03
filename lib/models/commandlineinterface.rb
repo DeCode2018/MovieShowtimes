@@ -146,8 +146,33 @@ class CommandLineInterface
 
   def menu_7
     #Update theater info
+    puts "Which theater would you like to update?"
+    update_theater = gets.chomp
+    puts "Do you want to change the theater name (n), address (a) or website (w)"
+    change_choice = gets.chomp.downcase
 
+    case change_choice
+      when "n"
+        puts "What do you want to change the theater name to?"
+        change_name = gets.chomp
+        # binding.pry
+        theater = Theater.find_by(theater_name: update_theater)
 
+        theater.update(theater_name: change_name)
+        puts "Theater name has been updated to #{theater_name}"
+      when "a"
+        puts "What do you want to change the theater address to?"
+        change_address = gets.chomp
+        theater = Theater.find_by(theater_name: update_theater)
+        theater.update(address: change_address)
+        puts "Theater address has been updated to #{address}"
+      when "w"
+        puts "What do you want to change the theater website to?"
+        change_website = gets.chomp
+        theater = Theater.find_by(theater_name: update_theater)
+        theater.update(website: change_website)
+        puts "Theater website has been updated to #{website}"
+      end
   end
 
   def menu_8
