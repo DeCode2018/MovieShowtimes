@@ -1,3 +1,4 @@
+require 'pry'
 class CommandLineInterface
 
 
@@ -48,6 +49,12 @@ class CommandLineInterface
 
       when "8"
       menu_8
+
+      when "9"
+      menu_9
+
+      when "10"
+      menu_10
     end
   end
 
@@ -139,25 +146,38 @@ class CommandLineInterface
 
   def menu_7
     #Update theater info
-    puts "Which theater would you like to delete?"
-    theater_delete = gets.chomp
-    theater = Theater.find_by(theater_name: theater_delete)
-    theater.destroy
+
+
   end
 
   def menu_8
     #Delete Showtime
-    
+    puts "What is the Theater name for the Showtime you want to delete"
+    showtime_theater_name_delete = gets.chomp
+    puts "What is the Movie name for the Showtime you want to delete"
+    showtime_movie_name_delete = gets.chomp
+    puts "Which showtime would you like to delete?"
+    showtime_delete = gets.chomp
+    showtime = Showtime.where(theater_name: showtime_theater_name_delete, film_name: showtime_movie_name_delete, time: showtime_delete)
+    binding.pry
+    showtime.destroy_all
 
   end
 
   def menu_9
     #Delete Movie
-
+    puts "Which movie would you like to delete?"
+    movie_delete = gets.chomp
+    movie = Movie.find_by(film_name: movie_delete)
+    movie.destroy
   end
 
   def menu_10
     #Delete Theater
+    puts "Which theater would you like to delete?"
+    theater_delete = gets.chomp
+    theater = Theater.find_by(theater_name: theater_delete)
+    theater.destroy
   end
 
 
