@@ -74,6 +74,7 @@ class CommandLineInterface
     puts "#{new_theater_address}"
     puts "#{new_theater_website}"
     puts "**********************"
+    return_menu?
   end
 
   def menu_2
@@ -92,6 +93,7 @@ class CommandLineInterface
     puts "#{new_movie_genre}"
     puts "#{new_movie_link_to_trailer}"
     puts "**********************"
+    return_menu?
   end
 
   def menu_3
@@ -115,6 +117,7 @@ class CommandLineInterface
     puts "#{movie_name_showtime}"
     puts "#{showtime}"
     puts "**********************"
+    return_menu?
   end
 
   def menu_4
@@ -123,6 +126,7 @@ class CommandLineInterface
     all_movies.each do |movie|
       puts movie.film_name
     end
+    return_menu?
   end
 
   def menu_5
@@ -131,17 +135,21 @@ class CommandLineInterface
     all_theaters.each do |theater|
       puts theater.theater_name
     end
+    return_menu?
   end
 
   def menu_6
     #list available showtimes
     all_showtimes = Showtime.all
     all_showtimes.each do |showtime|
+      puts "********************************************"
       puts "
       Theater Name: #{showtime.theater_name}\n
       Film Name: #{showtime.film_name}\n
       Showtime: #{showtime.time}\n"
+      puts "********************************************"
     end
+    return_menu?
   end
 
   def menu_7
@@ -160,18 +168,21 @@ class CommandLineInterface
 
         theater.update(theater_name: change_name)
         puts "Theater name has been updated to #{theater_name}"
+        return_menu?
       when "a"
         puts "What do you want to change the theater address to?"
         change_address = gets.chomp
         theater = Theater.find_by(theater_name: update_theater)
         theater.update(address: change_address)
         puts "Theater address has been updated to #{address}"
+        return_menu?
       when "w"
         puts "What do you want to change the theater website to?"
         change_website = gets.chomp
         theater = Theater.find_by(theater_name: update_theater)
         theater.update(website: change_website)
         puts "Theater website has been updated to #{website}"
+        return_menu?
       end
   end
 
@@ -186,6 +197,7 @@ class CommandLineInterface
     showtime = Showtime.where(theater_name: showtime_theater_name_delete, film_name: showtime_movie_name_delete, time: showtime_delete)
     binding.pry
     showtime.destroy_all
+    return_menu?
 
   end
 
@@ -195,6 +207,7 @@ class CommandLineInterface
     movie_delete = gets.chomp
     movie = Movie.find_by(film_name: movie_delete)
     movie.destroy
+    return_menu?
   end
 
   def menu_10
@@ -203,7 +216,20 @@ class CommandLineInterface
     theater_delete = gets.chomp
     theater = Theater.find_by(theater_name: theater_delete)
     theater.destroy
+    return_menu?
   end
 
+  def return_menu?
+    #ask user if he/she wants to return to main menu or not.
+    puts "Do you want to return to main menu?(Y/N)"
+    return_response = gets.chomp.downcase
 
+    case return_response
+    when "y"
+      system "ruby bin/run.rb"
+    when "n"
+      system "clear"
+      puts "Thanks for using MovieShowtime!!!"
+    end
+  end
 end
