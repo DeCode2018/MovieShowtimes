@@ -1,26 +1,33 @@
 require 'pry'
 require 'launchy'
+require 'tty'
+
+
 class CommandLineInterface
 
 
+
   def greet
-    puts "Welcome to MovieShowtime!!!"
+    puts "               WELCOME TO MOVIESHOWTIME!!!"
+    system "say Welcome to Movie Showtime"
   end
 
   def menu
-    puts "******************************"
-    puts "Enter the menu # to select"
-    puts "1. Create Theater"
-    puts "2. Create Movie Entry"
-    puts "3. Create Showtime Entry"
-    puts "4. List available movies"
-    puts "5. List available theaters"
-    puts "6. List available showtimes"
-    puts "7. Update theater info"
-    puts "8. Delete Showtime"
-    puts "9. Delete Movie"
-    puts "10. Delete Theater"
-    puts "******************************"
+    puts "*********************************************************************"
+    puts "*               Enter the menu # to select                          *"
+    puts "*-------------------------------------------------------------------*"
+    puts "*               1. Create Theater                                   *"
+    puts "*               2. Create Movie Entry                               *"
+    puts "*               3. Create Showtime Entry                            *"
+    puts "*               4. List available movies                            *"
+    puts "*               5. List available theaters                          *"
+    puts "*               6. List available showtimes                         *"
+    puts "*               7. Update theater info                              *"
+    puts "*               8. Delete Showtime                                  *"
+    puts "*               9. Delete Movie                                     *"
+    puts "*               10. Delete Theater                                  *"
+    puts "*               11. WARNING...DON'T SELECT THIS OPTION!!!           *"
+    puts "*********************************************************************"
   end
 
   def get_user_input
@@ -28,49 +35,71 @@ class CommandLineInterface
 
     case input
       when "1"
+        system "say Option 1"
       menu_1
 
       when "2"
+        system "say Option 2"
       menu_2
 
       when "3"
+        system "say Option 3"
       menu_3
 
       when "4"
+        system "say Option 4"
       menu_4
 
       when "5"
+        system "say Option 5"
       menu_5
 
       when "6"
+        system "say Option 6"
       menu_6
 
       when "7"
+        system "say Option 7"
       menu_7
 
       when "8"
+        system "say Option 8"
       menu_8
 
       when "9"
+        system "say Option 9"
       menu_9
 
       when "10"
+        system "say Option 10"
       menu_10
-    end
+
+      when "11"
+        system "say Oh SHIT!!!"
+        menu_11
+      end
   end
 
   def menu_1
     #create theater
     puts "What is the new theater's name?"
+    system "say What is the new theaters name?"
     new_theater_name = gets.chomp
+    system "say #{new_theater_name}"
     puts "What is the address for #{new_theater_name}?"
+    system "say What is the address for #{new_theater_name}?"
     new_theater_address = gets.chomp
+    system "say #{new_theater_address}"
     puts "What is the website for #{new_theater_name}"
+    system "say What is the website for #{new_theater_name}?"
     new_theater_website = gets.chomp
+    system "say #{new_theater_website}"
+
 
     Theater.create(theater_name: new_theater_name, address: new_theater_address, website: new_theater_website)
     puts "**********************"
     puts "This is your new theater:"
+    system "say This is your new theater"
     puts "#{new_theater_name}"
     puts "#{new_theater_address}"
     puts "#{new_theater_website}"
@@ -81,6 +110,7 @@ class CommandLineInterface
   def menu_2
     #create Movie Entry
     puts "What is the new movie's name?"
+    system "say What is the new movie's name?"
     new_movie_name = gets.chomp
     puts "What is the genre of #{new_movie_name}?"
     new_movie_genre = gets.chomp
@@ -102,8 +132,11 @@ class CommandLineInterface
 
     #get inputs from user
     puts "What theater are you entering a showtime for?"
+    system "say What theater are you entering a showtime for?"
     theater_name_showtime = gets.chomp
+    system "say #{theater_name_showtime}"
     puts "What movie are you entering a showtime for?"
+    system "say What movie are you entering a showtime for?"
     movie_name_showtime = gets.chomp
     puts "Enter showtime in format [hh:mm am/pm]"
     showtime = gets.chomp
@@ -233,17 +266,27 @@ class CommandLineInterface
     return_menu?
   end
 
+  def menu_11
+    system "say I THOUGHT I TOLD YOU NOT TO SELECT THAT DAMN OPTION"
+    system "emacs"
+  end
+
   def return_menu?
     #ask user if he/she wants to return to main menu or not.
     puts "Do you want to return to main menu?(Y/N)"
-    return_response = gets.chomp.downcase
+    system "say Do you want to return to main menu?"
+    return_response = gets.chomp.first.downcase
 
     case return_response
     when "y"
-      system "ruby bin/run.rb"
+      menu
+      get_user_input
+      # system "ruby bin/run.rb"
     when "n"
       system "clear"
       puts "Thanks for using MovieShowtime!!!"
+      system "say Thanks for using Movie Showtime"
+
     end
   end
 end
