@@ -1,25 +1,12 @@
 Movie Showtime is a CLI project I built as a way to showcase my understanding of databases and CRUD.
 
-CRUD layout
-Create
-Create Theater
-Create Movie
-Create Showtime
 
-Read
-List available Theaters
-List available Movies
-List available Showtimes
+Objectives
++ Design a Command Line Interface (CLI) application
++ App should have full Create, Read, Update and Delete (CRUD) capabilities
++ App should have 3 models: Theater, Movie and Showtime...Showtime is the join table of Movie and Theater
 
-Update
 
-Update Theater Info
-
-Delete
-
-Delete Showtime
-Delete Theater
-Delete Movies
 
 How to use:
 Navigate into your fork of MovieShowtime
